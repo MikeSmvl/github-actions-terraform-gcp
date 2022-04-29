@@ -1,6 +1,6 @@
 # create bucket
 resource "google_storage_bucket" "bucket" {
-  name = "test-bucket-1230"
+  name     = "test-bucket-1230"
   location = var.project_region
 }
 
@@ -35,9 +35,9 @@ resource "google_project_iam_member" "service_account_binding" {
 
 # create function
 resource "google_cloudfunctions_function" "function" {
-  name             = "test-function"
-  runtime          = "nodejs16"
-  ingress_settings = "ALLOW_ALL"
+  name                  = "test-function"
+  runtime               = "nodejs16"
+  ingress_settings      = "ALLOW_ALL"
   service_account_email = google_service_account.service_account.email
 
   available_memory_mb   = 128
